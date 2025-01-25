@@ -2,6 +2,10 @@ import { Suspense } from "react"
 import DataTable from "./data-table"
 import LoadingScreen from "@/components/loading-screen";
 
+export const metadata = {
+    title : "Polls - Pollhub",
+}
+
 export default async function Polls({
     searchParams
 } : {

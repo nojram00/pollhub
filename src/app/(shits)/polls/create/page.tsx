@@ -1,4 +1,9 @@
 import CreatePollForm from "./form"
+
+export const metadata = {
+    title : "Create Poll - Pollhub"
+}
+
 export default function CreatePollPage()
 {
     return (

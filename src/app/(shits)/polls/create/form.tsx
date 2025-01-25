@@ -2,6 +2,7 @@
 import React, { useActionState, useRef } from "react";
 import { createPoll } from "@/actions/poll-actions";
 import type { Questionaire } from "@/models/poll.model";
+import Image from "next/image";
 
 export default function CreatePollForm()
 {
@@ -49,10 +50,15 @@ export default function CreatePollForm()
 
             <dialog className="modal" ref={modalRef}>
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Success!</h3>
-                    <p className="py-4">Poll Uploaded!</p>
-                    <div className="modal-action">
-                    <form method="dialog">
+                    <div className="w-full flex items-center justify-center p-5">
+                        <Image className="rounded-lg" src="/happy-cat.gif" width={200} height={200} alt="success!"/>
+                    </div>
+                    <div className="flex flex-col items-center gap-4">
+                        <h3 className="font-bold text-2xl">Success!</h3>
+                        <p className="py-4">Poll Uploaded!</p>
+                        <div className="modal-action">
+                    </div>
+                    <form method="dialog" className="flex justify-end w-full">
                         <button className="btn">Close</button>
                     </form>
                     </div>
