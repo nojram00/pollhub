@@ -1,11 +1,14 @@
+import { Auth } from "@/utils/auth-manager"
 import CreatePollForm from "./form"
 
 export const metadata = {
     title : "Create Poll - Pollhub"
 }
 
-export default function CreatePollPage()
+export default async function CreatePollPage()
 {
+    await Auth();
+
     return (
         <div>
             <div className="flex flex-row items-center justify-center p-4">

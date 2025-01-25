@@ -17,7 +17,7 @@ export default function ErrorPage({
     }, [error])
 
     return(
-        <div className="flex w-full max-w-2xl flex-col items-center justify-center gap-5 p-10">
+        <div className="flex w-full flex-col items-center justify-center gap-5 p-10">
             <Image src="/banana-cat-transparent.gif" alt="Logo" width={400} height={400} />
             <h2>Opps!</h2>
             <span>Something went wrong! Please check the browser console for errors...</span>
