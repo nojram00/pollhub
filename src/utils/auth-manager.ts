@@ -9,8 +9,10 @@ export async function Auth() {
     const auth = await SessionModel.instance.getSession(session?.value as string);
     if(auth === null)
     {
-        return redirect("/login");
+        return false;
     }
+
+    return true;
 }
 
 export async function Guest()
@@ -19,8 +21,10 @@ export async function Guest()
     const auth = await SessionModel.instance.getSession(session?.value as string);
     if(auth !== null)
     {
-        return redirect("/polls");
+        return false;
     }
+
+    return true;
 }
 
 export async function logout() {
