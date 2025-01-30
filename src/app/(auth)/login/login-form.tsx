@@ -33,9 +33,9 @@ export default function LoginForm()
         <>
             <form action={action} className="flex flex-col gap-4 card bg-base-200 p-10">
                 <input type="text" className="input input-bordered max-w-lg w-full" placeholder="Username" name="username" />
-                <input type="password" className="input input-bordered max-w-lg w-full"  placeholder="Password" name="password"/>
+                <input type="password" disabled={pending} className="input input-bordered max-w-lg w-full"  placeholder="Password" name="password"/>
                 <div className="flex justify-left">
-                    <button type="submit" className="btn btn-primary max-w-xs lg:w-20 w-full">Login</button>
+                    <button type="submit" disabled={pending} className="btn btn-primary max-w-xs lg:w-20 w-full">Login</button>
                 </div>
                 <div>
                     <span>New user? <Link href={"/register"} className="link">Register here</Link></span>
@@ -44,7 +44,7 @@ export default function LoginForm()
 
             <dialog className="modal" ref={errorModalRef}>
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Registration failed</h3>
+                    <h3 className="font-bold text-lg">Login failed</h3>
                     <p className="py-4">Something went wrong. Please try again</p>
                     <div className="modal-action">
                     <form method="dialog">
