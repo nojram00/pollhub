@@ -1,10 +1,10 @@
 import { SessionModel } from "@/models/session.model";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request : NextRequest){
-    const cookies = request.cookies;
+export async function GET(request : Request){
+    const auth = request.headers.get("Authorization");
 
-    const session = cookies.get("session_id");
+    const session = auth?.split(" ")[1];
 
     if(session === undefined)
     {
@@ -17,10 +17,12 @@ export async function GET(request : NextRequest){
         // return NextResponse.redirect(url);
     }
 
-    const user = await SessionModel.instance.getSession(session.value as string);
+    const user = await SessionModel.instance.getSession(session as string);
 
     // return NextResponse.json({
     //     session: user
     // })
-    return NextResponse.next()
+    return NextResponse.json({
+        session: user
+    });
 }

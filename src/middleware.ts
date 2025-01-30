@@ -7,10 +7,10 @@ const protectedRoutes : string[] = [
 export default async function Middleware(request : NextRequest)
 {
     const { protocol, host } = request.nextUrl;
-    const session = await fetch(`${protocol}//${host}/api/get-auth`)
+    const session = await fetch(`${protocol}//${host}/api/get-auth`, {})
     const data : { session : any | null } = await session.json();
 
-    console.log("Session: ",session.json());
+    // console.log("Session: ",session.json());
     console.log("Request: ",request.nextUrl.pathname);
 
     if(request.nextUrl.pathname === "/login" && data !== null)
@@ -33,5 +33,5 @@ export default async function Middleware(request : NextRequest)
 
 
 export const config = {
-    matcher : ['/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)']
+    matcher : ['/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|*.gif).*)']
 }
