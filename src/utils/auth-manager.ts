@@ -1,18 +1,18 @@
 "use server";
 import { SessionModel } from "@/models/session.model";
+import axios from "axios";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export async function Auth() {
 
     const session = (await cookies()).get("session_id");
     const auth = await SessionModel.instance.getSession(session?.value as string);
-    if(auth === null)
+    if(auth !== null)
     {
-        return false;
+        return auth;
     }
 
-    return true;
+    return false;
 }
 
 export async function Guest()

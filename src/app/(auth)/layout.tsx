@@ -5,7 +5,6 @@ export default async function AuthLayer({ children } : {
     children : React.ReactNode
 })
 {
-    await Guest();
 
     return (
         <div>
